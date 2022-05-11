@@ -1,0 +1,81 @@
+
+(rules PCB BBBMINI_PCB_V2
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (eu.mihosoft.freerouting.autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 1405)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.6)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.6)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 200.2)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 50.0 (type smd_smd))
+  )
+  (padstack "Via[0-1]_600:400_um"
+    (shape
+      (circle F.Cu 600.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 600.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_600:400_um" "Via[0-1]_600:400_um" default
+  )
+  (via 
+    "Via[0-1]_600:400_um-kicad_default" "Via[0-1]_600:400_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_600:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_600:400_um-kicad_default"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    GNDD +3V3 +5V "SYS_5V" "PWR_BUT" DGND "/RCO_12" "/RCO_11"
+    "/RCO_10" "/RCO_8" "/RCO_7" "/RCO_6" "/RCO_5" "/RCO_4" "/RCO_3" "/RCO_2"
+    "/RCO_1" "/GPS_RX" "/GPS_TX" "/RCO_9" "Net-(P2-Pad10)" "/I2C_SDA" "/I2C_SCL" "/RADIO_TX"
+    "/RADIO_RX" "/CAN_RX" "/CAN_TX" "/SPI1_CS0" "/SPI1_MISO" "/SPI1_MOSI" "/SPI1_SCLK" /CURRENT
+    /VOLTAGE "/SPI1_CS1" "/RC_IN" "/CAN_L" "/CAN_H" "Net-(P10-Pad3)" "Net-(P10-Pad2)" /BUZZER
+    "Net-(R5-Pad1)" "Net-(P14-Pad2)"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
