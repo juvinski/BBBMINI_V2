@@ -24,7 +24,7 @@ Download the image
 7. `./waf` (take about 1h20m)
 8. `cp build/bbbmini/bin/* /home/debian/`
 
-## Compiling and loading DTC for BBBMini
+## Compiling and loading DTO for BBBMini
 
 1. Clone and compile the dtc - device tree compiler `git clone git://git.kernel.org/pub/scm/utils/dtc/dtc.git`
 2. Change the directory `cd dtc`
